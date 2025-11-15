@@ -207,6 +207,52 @@ try:
     print(f"2010 sonrasi en az {esik_degeri_recent} film yapmis en basarili 10 yonetmen (Mevcut Yonelim):")
     print(basarili_yonetmenler_recent)
 
+    # --- GORSEL 2: En Populer Yonetmenler (Tum Zamanlar - Film Sayisi) ---
+    print("Gorsel 2 hazirlaniyor: En Populer Yonetmenler (Tum Zamanlar)...")
+
+    # Veri: 'populer_yonetmenler_tum_zamanlar' (Analiz 2A'da hesaplanmisti)
+
+    plt.figure(figsize=(12, 8)) # Grafik boyutu (genislik, yukseklik)
+
+    # 'kind='barh'' -> Yatay Bar Grafik cizer.
+    # En yuksek sayida olani en uste almak icin '.sort_values(ascending=True)'
+    populer_yonetmenler_tum_zamanlar.sort_values(ascending=True).plot(
+        kind='barh', 
+        color='darkcyan', 
+        edgecolor='black'
+    )
+    
+    plt.title('En Populer 10 Yonetmen (Tum Zamanlar - Film Sayisi)', fontsize=16)
+    plt.xlabel('Toplam Film Sayisi', fontsize=12)
+    plt.ylabel('Yonetmen (Director)', fontsize=12)
+    plt.tight_layout() # Kenar bosluklarini ayarla
+    
+    print("Grafik gosteriliyor...")
+    plt.show()
+
+
+    # --- GORSEL 3: En Populer Yonetmenler (2010 Sonrasi - Film Sayisi) ---
+    print("Gorsel 3 hazirlaniyor: En Populer Yonetmenler (2010 Sonrasi)...")
+
+    # Veri: 'populer_yonetmenler_recent' (Analiz 2B'de hesaplanmisti)
+
+    plt.figure(figsize=(12, 8)) # Grafik boyutu
+
+    # 'color='goldenrod'' (Altin rengi) -> Renkleri degistirebiliriz
+    populer_yonetmenler_recent.sort_values(ascending=True).plot(
+        kind='barh', 
+        color='goldenrod', 
+        edgecolor='black'
+    )
+    
+    plt.title('En Populer 10 Yonetmen (2010 Sonrasi - Film Sayisi)', fontsize=16)
+    plt.xlabel('Toplam Film Sayisi (2010 Sonrasi)', fontsize=12)
+    plt.ylabel('Yonetmen (Director)', fontsize=12)
+    plt.tight_layout()
+    
+    print("Grafik gosteriliyor...")
+    plt.show()
+
     # --- ANALIZ 4: GUNCEL TUR EGILIMI (2010 SONRASI) ---
     print("\n--- Analiz 4: Guncel Tur Egilimi (2010 Sonrasi) ---")
     
@@ -311,51 +357,7 @@ try:
     print("Grafik gosteriliyor...")
     plt.show()
 
-    # --- GORSEL 2: En Populer Yonetmenler (Tum Zamanlar - Film Sayisi) ---
-    print("Gorsel 2 hazirlaniyor: En Populer Yonetmenler (Tum Zamanlar)...")
-
-    # Veri: 'populer_yonetmenler_tum_zamanlar' (Analiz 2A'da hesaplanmisti)
-
-    plt.figure(figsize=(12, 8)) # Grafik boyutu (genislik, yukseklik)
-
-    # 'kind='barh'' -> Yatay Bar Grafik cizer.
-    # En yuksek sayida olani en uste almak icin '.sort_values(ascending=True)'
-    populer_yonetmenler_tum_zamanlar.sort_values(ascending=True).plot(
-        kind='barh', 
-        color='darkcyan', 
-        edgecolor='black'
-    )
     
-    plt.title('En Populer 10 Yonetmen (Tum Zamanlar - Film Sayisi)', fontsize=16)
-    plt.xlabel('Toplam Film Sayisi', fontsize=12)
-    plt.ylabel('Yonetmen (Director)', fontsize=12)
-    plt.tight_layout() # Kenar bosluklarini ayarla
-    
-    print("Grafik gosteriliyor...")
-    plt.show()
-
-
-    # --- GORSEL 3: En Populer Yonetmenler (2010 Sonrasi - Film Sayisi) ---
-    print("Gorsel 3 hazirlaniyor: En Populer Yonetmenler (2010 Sonrasi)...")
-
-    # Veri: 'populer_yonetmenler_recent' (Analiz 2B'de hesaplanmisti)
-
-    plt.figure(figsize=(12, 8)) # Grafik boyutu
-
-    # 'color='goldenrod'' (Altin rengi) -> Renkleri degistirebiliriz
-    populer_yonetmenler_recent.sort_values(ascending=True).plot(
-        kind='barh', 
-        color='goldenrod', 
-        edgecolor='black'
-    )
-    
-    plt.title('En Populer 10 Yonetmen (2010 Sonrasi - Film Sayisi)', fontsize=16)
-    plt.xlabel('Toplam Film Sayisi (2010 Sonrasi)', fontsize=12)
-    plt.ylabel('Yonetmen (Director)', fontsize=12)
-    plt.tight_layout()
-    
-    print("Grafik gosteriliyor...")
-    plt.show()
 
 except FileNotFoundError:
     print(f"Hata: '{dosya_yolu}' adinda bir dosya bulunamadi.")
